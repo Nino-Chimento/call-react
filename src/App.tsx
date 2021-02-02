@@ -8,12 +8,14 @@ function App() {
   const [user, setUser] = useState("");
 
   const sendRequest = (): void => {
-    axios.get(`http://localhost/farc/public/farc_users`).then((res) => {
-      setUser(res.data);
-    });
+    axios
+      .get(`http://localhost/farc/public/farc_users`, {
+        params: { email, password },
+      })
+      .then((res) => {
+        setUser(res.data);
+      });
   };
-
-  console.log(password);
 
   return (
     <>
